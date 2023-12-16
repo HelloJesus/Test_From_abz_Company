@@ -1,38 +1,192 @@
-.App {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background-color: #F8F8F8;
+  overflow-x: hidden;
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(0, 189, 211, 1);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text {
+  position: relative;
+}
+
+.text-tooltip {
+  position: absolute;
+  visibility: hidden;
+  top: 50%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  bottom: 150%;
+  padding: 10px;
+  border-radius: 2px;
+  background: rgb(2, 2, 111);
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 12px rgba(2, 2, 111, 0.4);
+  z-index: 100;
+}
+
+.text:hover+.text-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+[data-title] {
+  font-size: 18px;
+  position: relative;
+  cursor: help;
+  cursor: pointer;
+}
+
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -105%;
+  left: 25%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.87);
+  color: rgba(255, 255, 255, 1);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* [data-title]:hover::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 45%;
+	border: 8px solid transparent;	
+	border-bottom: 8px solid rgba(0, 0, 0, 0.87);
+} */
+
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+[type="radio"]:checked+label:before {
+  border: 1px solid rgba(0, 189, 211, 1);
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: rgba(0, 189, 211, 1);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+
+body {
+  padding: 30px;
+}
+
+.filename {
+  background: #fff;
+  border: 1px solid rgba(208, 207, 207, 1);
+  border-left: 0;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.file-upload {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 54px;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.file-upload input[type="file"] {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.file-upload label {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0 15px;
+  text-align: center;
+  border-radius: 4px 0px 0px 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.error label {
+  border: 2px solid rgba(203, 61, 64, 1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error .filename {
+  border: 2px solid rgba(203, 61, 64, 1);
+  border-left: 0;
 }
