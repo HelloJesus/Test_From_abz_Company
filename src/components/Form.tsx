@@ -53,8 +53,6 @@ export const Form = ({ token }: Props) => {
         formData.append('phone', phone)
         formData.append('position_id', post)
         formData.append('photo', file)
-        console.log(name, email, phone, post, file)
-
 
         axios.post(`https://frontend-test-assignment-api.abz.agency/api/v1/users`, formData, {
             headers: {
@@ -62,15 +60,10 @@ export const Form = ({ token }: Props) => {
                 'Content-Type': 'multipart/form-data'
             }
         }).then(res => {
-            console.log(res)
-            console.log(res.data.message)
             window.location.reload() // reset page
         }).catch(function (error) {
             if (error.response) {
-                console.log(error.response.data.fails)
                 setError(error.response.data.fails)
-                console.log(error.response.status)
-                console.log(error.response.headers)
             } else if (error.request) {
                 console.log(error.request)
             } else {
