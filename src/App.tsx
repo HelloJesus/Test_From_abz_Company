@@ -48,8 +48,6 @@ function App() {
 
   return (
     <div className='font-nunito'>
-      {isLoading === true && 'Loading...'
-      }
       <Header />
       <main className='max-w-screen-xl m-auto'>
         <div className='min-h-[500px] md:h-[650px] w-full p-4 bgMainHeader flex align-center justify-center'>
