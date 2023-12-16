@@ -6,12 +6,15 @@ type Props = {
 
 export const InputFile = ({ error, handlerChangeFile, fileName }: Props) => {
     return (
-        <div className={`file-upload mb-12.5 ${error?.photo ? 'error' : ''}`}>
-            <label>
-                <input type="file" name="file" onChange={handlerChangeFile} />
-                <span>Upload</span>
-            </label>
-            <input type="text" id="filename" className="filename" placeholder={fileName} disabled></input>
-        </div>
+        <>
+            {error?.photo ? <p className='text-start text-error'>{error.photo}</p> : ''}
+            <div className={`file-upload mb-12.5 ${error?.photo ? 'error' : ''}`}>
+                <label>
+                    <input type="file" name="file" onChange={handlerChangeFile} />
+                    <span>Upload</span>
+                </label>
+                <input type="text" id="filename" className="filename" placeholder={fileName} disabled></input>
+            </div>
+        </>
     )
 }

@@ -7,6 +7,7 @@ import { createUsers } from './ReduxToolkit/usersReducer';
 import { User } from './components/User';
 import { Form } from './components/Form';
 import { createToken } from './ReduxToolkit/adminReducer';
+import { LocalLink } from './components/LocalLink';
 
 function App() {
   const [countUsers, setCountUsers] = useState<number>(6)
@@ -50,15 +51,15 @@ function App() {
       {isLoading === true && 'Loading...'
       }
       <Header />
-      <main className='max-w-screen-xl m-auto px-4 sx:px-8'>
+      <main className='max-w-screen-xl m-auto'>
         <div className='min-h-[500px] md:h-[650px] w-full p-4 bg-bgMainHeader flex align-center justify-center'>
           <div className='flex flex-col items-center justify-center max-w-[380px] text-center'>
             <h1 className='text-white mb-[21px] text-4xl'>Test assignment for front-end developer</h1>
             <p className='text-white mb-8'>What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.</p>
-            <Button type='yellow' text='Sign Up' />
+            <LocalLink  text='Sign Up' link='#signup'/>
           </div>
         </div>
-        <div className='mt-35 text-center'>
+        <div className='mt-35 text-center  px-4 sx:px-8' id='users'>
           <h1 className='text-4xl mb-12.5'>Working with GET request</h1>
           <div className='grid grid-cols-1 sx:grid-cols-2 md:grid-cols-3 gap-5 sx:gap-4 md:gap-[29px] mb-12.5'>
             {(users && users.users && users.users.map((user, index) => {
@@ -89,7 +90,7 @@ function App() {
               : ''
           }
         </div>
-        <div className='mt-35 text-center m-auto'>
+        <div className='mt-35 text-center m-auto' id='signup'>
           <h1 className='text-4xl mb-12.5'>Working with POST request</h1>
           <Form token={admin.token} />
         </div>

@@ -12,3 +12,4 @@
 2. React, ReduxToolkit
 3. Tailwind CSS
 4. Axios
+5. React Router Hash Link

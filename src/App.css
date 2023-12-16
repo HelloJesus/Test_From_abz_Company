@@ -30,30 +30,6 @@ body {
   }
 }
 
-.text {
-  position: relative;
-}
-
-.text-tooltip {
-  position: absolute;
-  visibility: hidden;
-  top: 50%;
-  opacity: 0;
-  transition: opacity 1s ease;
-  bottom: 150%;
-  padding: 10px;
-  border-radius: 2px;
-  background: rgb(2, 2, 111);
-  color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 12px rgba(2, 2, 111, 0.4);
-  z-index: 100;
-}
-
-.text:hover+.text-tooltip {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
 
 
 [data-title] {
@@ -66,23 +42,16 @@ body {
 [data-title]:hover::before {
   content: attr(data-title);
   position: absolute;
+  height: auto;
   bottom: -105%;
   left: 25%;
   padding: 10px;
   background: rgba(0, 0, 0, 0.87);
   color: rgba(255, 255, 255, 1);
   font-size: 14px;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-all;
 }
-
-/* [data-title]:hover::after {
-	content: '';
-	position: absolute;
-	bottom: -10px;
-	left: 45%;
-	border: 8px solid transparent;	
-	border-bottom: 8px solid rgba(0, 0, 0, 0.87);
-} */
 
 
 [type="radio"]:checked,
@@ -142,11 +111,6 @@ body {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
-}
-
-
-body {
-  padding: 30px;
 }
 
 .filename {

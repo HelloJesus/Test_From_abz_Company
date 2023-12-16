@@ -102,7 +102,10 @@ export const Form = ({ token }: Props) => {
             <InputRadioPost setPost={setPost} post={post}/>
             <InputFile error={error} handlerChangeFile={handlerChangeFile} fileName={fileName}/>
             <div className='m-auto'>
-                <Button type='yellow' text='Sign Up ' />
+                <Button 
+                type={`${name === '' || email === '' || phone === '' || file === 'Upload your photo' ? '' : 'yellow' }`} 
+                text='Sign Up ' 
+                />
             </div>
         </form>
     )
