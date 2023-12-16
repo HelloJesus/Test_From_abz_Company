@@ -80,7 +80,7 @@ export const Form = ({ token }: Props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex flex-col max-w-[380px] m-auto'>
+        <form onSubmit={handleSubmit} className='flex flex-col max-w-[380px] m-auto pb-4'>
             <div className='mb-12.5'>
             {error?.name ? <p className='text-start text-error'>{error.name}</p> : ''}
                 <input type="text" className={`py-[14px] px-4 text-gray-300 w-full rounded outline-none

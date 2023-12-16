@@ -8,6 +8,15 @@ body {
   overflow-x: hidden;
 }
 
+.bgMainHeader {
+  background-image: url('../src/images/bg-main-block.jpg');
+}
+
+@media screen and (max-width: 768px) {
+  .bgMainHeader {
+    background-image: url('../src/images/bg-main-block-mobile.jpg');
+  }
+}
 
 .loader {
   width: 48px;
@@ -29,7 +38,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 
 
 [data-title] {

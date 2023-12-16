@@ -52,7 +52,7 @@ function App() {
       }
       <Header />
       <main className='max-w-screen-xl m-auto'>
-        <div className='min-h-[500px] md:h-[650px] w-full p-4 bg-bgMainHeader flex align-center justify-center'>
+        <div className='min-h-[500px] md:h-[650px] w-full p-4 bgMainHeader flex align-center justify-center'>
           <div className='flex flex-col items-center justify-center max-w-[380px] text-center'>
             <h1 className='text-white mb-[21px] text-4xl'>Test assignment for front-end developer</h1>
             <p className='text-white mb-8'>What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.</p>
